@@ -4,5 +4,6 @@
         "."
     ],
     "java.project.referencedLibraries": [],
-    "json.schemas": []
+    "json.schemas": [],
+    "editor.inlineSuggest.enabled": false
 }
