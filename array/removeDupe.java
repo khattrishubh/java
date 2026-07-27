@@ -1,4 +1,5 @@
-public class redu
+import java.util.Scanner;
+public class removeDupe
 {
     public static void main(String args[])
     {
@@ -12,7 +13,7 @@ public class redu
         {
             if(arr[i] == arr[i+1])
             {
-                
+
             }
         }
     }

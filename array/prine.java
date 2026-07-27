@@ -1,4 +1,4 @@
-import java.util.Scanner
+import java.util.Scanner;
 class prine
 {
     public static void main(String args[])
@@ -14,7 +14,7 @@ class prine
                     c++;
                     if(c==2)
                     {
-                        
+                      System.out.println(i);
                     }
                 }
             }
