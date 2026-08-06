@@ -8,9 +8,8 @@ class LC73
             matrix[x][j] = 0;
         }
 
-        for( int i=0; i<matrix.length; i++)
-        {
-            matrix[i][y] = 0;
+        for (int[] matrix1 : matrix) {
+            matrix1[y] = 0;
         }
 
     }
