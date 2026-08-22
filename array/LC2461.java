@@ -1,31 +1,37 @@
-import java.util.Scanner;
+import java.util.*;
 class LC2461
 {
     public long maximumSubarraySum(int[] nums, int k)
     {
         int n = nums.length;
-        int low = 0 ;
-        int high = k-1;
         long sum = 0;
-        long res = Long.MIN_VALUE;
-        for(int i=low; i<=high; i++)
-        {
-            sum += nums[i];
-        }
-        while(high<n)
-        {
-            res = Math.max(res,sum);
-            low++;
-            high++;
+        long maxSum =0;
+        int left =0;
+        HashMap<Integer,Integer> map = new HashMap<>();
 
-            if( high == n)
+        for( int right =0; right <n; right++)
+        {
+            sum += nums[right];
+            map.put(nums[right],map.getOrDefault(nums[right],0)+1);
+
+            if( right - left + 1 > k)
             {
-                break;
+                int x = nums[left];
+                sum -= x;
+                map.put( x, map.get(x)-1);
+
+                if( map.get(x) == 0)
+                {
+                    map.remove(x);
+                }
+                left++;
             }
-            sum = sum - nums[low-1];
-            sum = sum + nums[high];
+            if(right - left + 1 == k && map.size()==k)
+            {
+                maxSum = Math.max(maxSum,sum);
+            }
         }
-        return res;
+        return maxSum;
     }
     public static void main(String[] args)
     {
