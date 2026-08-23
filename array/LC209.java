@@ -4,25 +4,22 @@ class LC209
     public int minSubArrayLen(int target, int[] nums)
     {
         int n = nums.length;
-        int low =0;
-        int high = 0;
-        int res = Integer.MAX_VALUE;
+        int left =0;
+        int min = Integer.MAX_VALUE;
         int sum=0;
 
-        while(high<n)
-        {
-            sum+= nums[high];
+       for( int right =0; right <n; right++)
+       {
+            sum += nums[right];
 
-            while( sum>=target)
+            while( sum>= target)
             {
-                int len = high - low + 1;
-                res = Math.min(res,len);
-                sum -= nums[low];
-                low++;
+                min = Math.min(min, right-left+1);
+                sum -= nums[left];
+                left++;
             }
-            high++;
-        }.        
-        return res;
+       }
+       return min== Integer.MAX_VALUE ? 0:min;
     }
     public static void main(String[] args)
     {
